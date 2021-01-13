@@ -10,7 +10,7 @@ on:
   watch:
     types: [started]
   repository_dispatch:
-    types: my
+    types: myHD
 jobs:
   build:
 
