@@ -6,7 +6,7 @@ name: jd_dreamFactory_ele
 on:
   workflow_dispatch:
   schedule:
-    - cron: '5,15,25,35,45,55 0-23 * * *'
+    - cron: '5,20,35,50 0-23 * * *'
   watch:
     types: [started]
   repository_dispatch:
@@ -28,10 +28,11 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【惊喜工厂机器电力挂机】'
+      - name: '运行 【惊喜工厂及东东工厂机器电力挂机】'
         run: |
           cd ~/scripts
           node jd_dreamFactory_ele.js
+          node jd_jdfactory_ele.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
