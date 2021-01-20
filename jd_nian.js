@@ -46,8 +46,8 @@ if ($.isNode()) {
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const inviteCodes = [
-  `cgxZczjQfeSSrUSFRGatrhx6SVZFENfZmQ@cgxZdTXtIruO71ifWwKuvgm-d35KxhOZZ_WJzwYCgZ6QIRU6pyAvqgr4lu0@cgxZdTXtI7rb4w-dClH8vQubP8arz5jN27SLAbXa-bcBAkwWkN0IUZuzVMU@cgxZaDXCd9q6l0u7XVvxlKV5psGJgzYO7O7BGEw9dLs4WMICiIJ_@cgxZdTXtIrnT6AbNWwL87YNKGKiqFcXstG8N4r6Kzy-S6uxMa31l10OH2Bo@cgxZ--0o_D1ZMrZn368dOq0Ver11ljuCMgMJ9XTUeAJX-Leshvh2LMUB46tqvldukNbihzZ32A@cgxZdTXtILrZ6QudDFOs7UkXhK9rJDQWCQH42EBqeb6R50axAhZvZhnak9E@cgxZdTXtIu6J7w-aDlCqup_V1zr2mbr34syPuaie9BuHo-MJQ9KzQXkeX1Y@cgxZdTXtI7je6F_ODFCvvdH_EJE9uOdnDZ_6VpmLvhkXhLq21EkKJrYpmyo@cgxZdTXtIevevAvKWVD7vIUaK8hqsR7m9d5zTh3IUQy4XYeGdXsOJqKpAME@jYuFucCQT6uwIqAeZUOuKhD6Hn2gctGl16WWrpa2Q9GbQp1s8`,
-  `cgxZczjQfeSSrUSFRGatrhx6SVZFENfZmQ@cgxZdTXtIruO71ifWwKuvgm-d35KxhOZZ_WJzwYCgZ6QIRU6pyAvqgr4lu0@cgxZdTXtI7rb4w-dClH8vQubP8arz5jN27SLAbXa-bcBAkwWkN0IUZuzVMU@cgxZaDXCd9q6l0u7XVvxlKV5psGJgzYO7O7BGEw9dLs4WMICiIJ_@cgxZdTXtIrnT6AbNWwL87YNKGKiqFcXstG8N4r6Kzy-S6uxMa31l10OH2Bo@cgxZ--0o_D1ZMrZn368dOq0Ver11ljuCMgMJ9XTUeAJX-Leshvh2LMUB46tqvldukNbihzZ32A@cgxZdTXtILrZ6QudDFOs7UkXhK9rJDQWCQH42EBqeb6R50axAhZvZhnak9E@cgxZdTXtIu6J7w-aDlCqup_V1zr2mbr34syPuaie9BuHo-MJQ9KzQXkeX1Y@cgxZdTXtI7je6F_ODFCvvdH_EJE9uOdnDZ_6VpmLvhkXhLq21EkKJrYpmyo@cgxZdTXtIevevAvKWVD7vIUaK8hqsR7m9d5zTh3IUQy4XYeGdXsOJqKpAME@jYuFucCQT6uwIqAeZUOuKhD6Hn2gctGl16WWrpa2Q9GbQp1s8`,
+  `cgxZczjQfeSSrUSFRGatrhx6SVZFENfZmQ@cgxZdTXtIruO71ifWwKuvgm-d35KxhOZZ_WJzwYCgZ6QIRU6pyAvqgr4lu0@cgxZdTXtI7rb4w-dClH8vQubP8arz5jN27SLAbXa-bcBAkwWkN0IUZuzVMU@cgxZaDXCd9q6l0u7XVvxlKV5psGJgzYO7O7BGEw9dLs4WMICiIJ_@cgxZdTXtIrnT6AbNWwL87YNKGKiqFcXstG8N4r6Kzy-S6uxMa31l10OH2Bo@cgxZdTXtI7_avFrNAAeruXphbXK5MZxbQSpoWN-5uuDs9j0nN2mo9M6rz-8`,
+  `cgxZczjQfeSSrUSFRGatrhx6SVZFENfZmQ@cgxZdTXtIruO71ifWwKuvgm-d35KxhOZZ_WJzwYCgZ6QIRU6pyAvqgr4lu0@cgxZdTXtI7rb4w-dClH8vQubP8arz5jN27SLAbXa-bcBAkwWkN0IUZuzVMU@cgxZaDXCd9q6l0u7XVvxlKV5psGJgzYO7O7BGEw9dLs4WMICiIJ_@cgxZdTXtIrnT6AbNWwL87YNKGKiqFcXstG8N4r6Kzy-S6uxMa31l10OH2Bo@cgxZdTXtI7_avFrNAAeruXphbXK5MZxbQSpoWN-5uuDs9j0nN2mo9M6rz-8`,
  ];
 !(async () => {
   await requireConfig();
@@ -92,7 +92,7 @@ async function jdNian() {
   await getTaskList()
   await $.wait(1000)
   await doTask()
-  //await helpFriends()
+  await helpFriends()
   await getHomeData(true)
   await showMsg()
 }
@@ -124,6 +124,7 @@ function showMsg() {
 async function helpFriends() {
   for (let code of $.newShareCodes) {
     if (!code) continue
+	console.log(code)
     await getFriendData(code)
     await $.wait(1000)
   }
@@ -832,10 +833,10 @@ function shareCodesFormat() {
       const tempIndex = $.index > inviteCodes.length ? (inviteCodes.length - 1) : ($.index - 1);
       $.newShareCodes = inviteCodes[tempIndex].split('@');
     }
-    const readShareCodeRes = await readShareCode();
-    if (readShareCodeRes && readShareCodeRes.code === 200) {
-      $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
-    }
+    //const readShareCodeRes = await readShareCode();
+    //if (readShareCodeRes && readShareCodeRes.code === 200) {
+    //  $.newShareCodes = [...new Set([...$.newShareCodes, ...(readShareCodeRes.data || [])])];
+    //}
     console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify($.newShareCodes)}`)
     resolve();
   })
@@ -879,7 +880,7 @@ function taskPostUrl(function_id, body = {}, function_id2) {
       "origin": "https://h5.m.jd.com",
       "referer": "https://h5.m.jd.com/",
       'Content-Type': 'application/x-www-form-urlencoded',
-      "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0")
+      "User-Agent": "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0"
     }
   }
 }
