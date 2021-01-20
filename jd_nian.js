@@ -92,7 +92,7 @@ async function jdNian() {
   await getTaskList()
   await $.wait(1000)
   await doTask()
-  await helpFriends()
+  //await helpFriends()
   await getHomeData(true)
   await showMsg()
 }
