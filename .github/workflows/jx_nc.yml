@@ -32,6 +32,8 @@ jobs:
         run: |
           cd ~/scripts
           node jd_jxnc.js
+          node jd_dreamFactory_ele.js
+          node jd_jdfactory_ele.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
