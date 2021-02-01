@@ -6,7 +6,7 @@ name: jd_mh
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16,19 * * *'
+    - cron: '20 20,22 * * *'
   watch:
     types: started
   repository_dispatch:
@@ -37,6 +37,8 @@ jobs:
           node jd_ms.js
           node jd_festival.js
           node jd_coupon.js
+          node jd_xg.js
+          node jd_super_box.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
