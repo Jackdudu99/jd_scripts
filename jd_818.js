@@ -58,7 +58,7 @@ const JD_API_HOST = 'https://rdcseason.m.jd.com/api/';
 const activeEndTime = '2021/2/4 23:59:59+08:00';
 const addUrl = 'http://jd.turinglabs.net/helpcode/create/';
 const printUrl = `http://jd.turinglabs.net/api/v2/jd/5g/read/30/`;
-let helpCode = ["7a181ae9-cecf-49a0-b73f-17a9c40c5b5e","8ce25343-ed32-4237-9a6f-633154ef00bc","b132e139-8f5d-4e88-a49b-db5dfa8001cb","4b3cc07f-1fdc-4b4c-b446-a179bc8ffade","95722ebc-fed5-4c79-bde6-ff61ab93af4d",]
+let helpCode = ["7a9bb434-2591-422b-a022-406ca950d229","cd17e33b-8681-4db8-bf6c-f36845da02c9","a85190f0-a016-4637-9780-05033d2b7e9e","c08b443b-b24e-4176-9827-3742a67fae6a","b0a6bc9d-7dc6-4c19-8780-846c2bf1c19a"]
 !(async () => {
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
