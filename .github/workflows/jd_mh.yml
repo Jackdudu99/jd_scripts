@@ -39,6 +39,7 @@ jobs:
           node jd_coupon.js
           node jd_xg.js
           node jd_super_box.js
+          node jd_global.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
