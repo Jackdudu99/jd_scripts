@@ -29,20 +29,17 @@ let cookiesArr = [], cookie = '', message;
 let helpAuthor = true;
 const randomCount = $.isNode() ? 20 : 5;
 const inviteCodes = [
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ`,
+  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
+  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
+  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
+  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
+  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
+  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
+  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
+  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
+  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
+  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
+  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
 	 ]
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
