@@ -33,8 +33,6 @@ jobs:
         run: |
           cd ~/scripts
           node -v
-          node jd_mh.js
-          node jd_ms.js
           node jd_festival.js
           node jd_coupon.js
           node jd_xg.js
