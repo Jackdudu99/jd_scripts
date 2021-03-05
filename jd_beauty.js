@@ -582,6 +582,7 @@ function jsonParse(str) {
     try {
       return JSON.parse(str);
     } catch (e) {
+	  console.log(str);
       console.log(e);
       $.msg($.name, '', '不要在BoxJS手动复制粘贴修改cookie')
       return [];
