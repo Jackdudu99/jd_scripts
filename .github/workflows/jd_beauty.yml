@@ -23,11 +23,11 @@ jobs:
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
-          node-version: 10.x
-      - name: npm install
+          node-version: 14.x
+      - name: npm i
         run: |
           cd ~/scripts
-          npm install
+          npm i
       - name: '运行 美丽研究院'
         run: |
           cd ~/scripts
