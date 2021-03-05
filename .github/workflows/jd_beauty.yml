@@ -31,6 +31,7 @@ jobs:
       - name: '运行 美丽研究院'
         run: |
           cd ~/scripts
+          node -v
           node jd_beauty.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
