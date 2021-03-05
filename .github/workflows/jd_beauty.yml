@@ -23,15 +23,14 @@ jobs:
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
-          node-version: 14.x
-      - name: npm i
+          node-version: 10.x
+      - name: npm install
         run: |
           cd ~/scripts
-          npm i
+          npm install
       - name: '运行 美丽研究院'
         run: |
           cd ~/scripts
-          node -v
           node jd_beauty.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
