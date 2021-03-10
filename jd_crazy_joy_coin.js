@@ -232,7 +232,7 @@ async function jdJxStory() {
   })
   for (let idx in obj) {
     const vo = obj[idx]
-    if (idx < 34 && vo.length >= 2) {
+    if (idx <= 34 && vo.length >= 2) {
       await mergeJoy(vo[0], vo[1])
       await $.wait(3000)
     }
@@ -285,8 +285,8 @@ function getJoyShop() {
           data = JSON.parse(data);
           if (data.success && data.data && data.data.shop) {
             const shop = data.data.shop.filter(vo => vo.status === 1) || []
-            $.buyJoyLevel = shop.length ? shop[shop.length - 1]['joyId'] : 1
-            $.cost = shop.length ? shop[shop.length - 1]['coins'] : Infinity
+            $.buyJoyLevel = shop.length ? shop[shop.length - 2]['joyId'] : 1
+            $.cost = shop.length ? shop[shop.length - 2]['coins'] : Infinity
           }
         }
       } catch (e) {
