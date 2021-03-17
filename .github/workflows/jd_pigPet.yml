@@ -28,9 +28,10 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【金融养猪】'
+      - name: '运行 【进店领豆脚本】【金融养猪】'
         run: |
           cd ~/scripts
+          node jd_shop.js
           node jd_pigPetNew.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}

@@ -109,11 +109,11 @@ async function doTask() {
       if(item.taskType!=6){
 		await necklace_startTask(item.id);
         await $.wait(2000);
-        await necklace_startTask(item.id);
+        await necklace_reportTask(item.id);
 	  }else{
-		await necklace_getTask(item.id);
+		await necklace_startTask(item.id);
         await $.wait(2000);
-        //await necklace_getTask(item.id);
+        await necklace_getTask(item.id);
 	  }
     } else if (item.taskStage === 2) {
       console.log(`${item.taskName}任务已做完,奖励未领取`);
@@ -124,11 +124,11 @@ async function doTask() {
 	  if(item.taskType!=6){
 		await necklace_startTask(item.id);
         await $.wait(2000);
-        await necklace_startTask(item.id);
+        await necklace_reportTask(item.id);
 	  }else{
-		await necklace_getTask(item.id);
+		await necklace_startTask(item.id);
         await $.wait(2000);
-        //await necklace_getTask(item.id);
+        await necklace_getTask(item.id);
 	  }
 
     }
@@ -246,7 +246,37 @@ function necklace_chargeScores(bubleId) {
 function necklace_startTask(taskId) {
   return new Promise(resolve => {
     const body = {
-      taskId,
+      taskId:taskId,
+      currentDate: $.lastRequestTime.replace(/:/g, "%3A"),
+    }
+    $.post(taskPostUrl("necklace_startTask", body), async (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} API请求失败，请检查网路重试`)
+        } else {
+          if (safeGet(data)) {
+            data = JSON.parse(data);
+            if (data.rtn_code === 0) {
+              if (data.data.biz_code === 0) {
+                // $.taskConfigVos = data.data.result.taskConfigVos;
+                // $.exchangeGiftConfigs = data.data.result.exchangeGiftConfigs;
+              }
+            }
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve();
+      }
+    })
+  })
+}
+function necklace_reportTask(taskId) {
+  return new Promise(resolve => {
+    const body = {
+      taskId:taskId,
       currentDate: $.lastRequestTime.replace(/:/g, "%3A"),
     }
     $.post(taskPostUrl("necklace_reportTask", body), async (err, resp, data) => {
