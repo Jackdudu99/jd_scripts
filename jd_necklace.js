@@ -106,15 +106,31 @@ async function doTask() {
   for (let item of $.taskConfigVos) {
     if (item.taskStage === 0) {
       console.log(`${item.taskName}未完成`);
-      await necklace_startTask(item.id);
-      await $.wait(2000);
-      await necklace_startTask(item.id);
+      if(item.taskType!=6){
+		await necklace_startTask(item.id);
+        await $.wait(2000);
+        await necklace_startTask(item.id);
+	  }else{
+		await necklace_getTask(item.id);
+        await $.wait(2000);
+        //await necklace_getTask(item.id);
+	  }
     } else if (item.taskStage === 2) {
       console.log(`${item.taskName}任务已做完,奖励未领取`);
     } else if (item.taskStage === 3) {
       console.log(`${item.taskName}奖励已领取`);
     } else if (item.taskStage === 1) {
       console.log(`${item.taskName}任务未完成\n`);
+	  if(item.taskType!=6){
+		await necklace_startTask(item.id);
+        await $.wait(2000);
+        await necklace_startTask(item.id);
+	  }else{
+		await necklace_getTask(item.id);
+        await $.wait(2000);
+        //await necklace_getTask(item.id);
+	  }
+
     }
   }
 }
@@ -233,7 +249,74 @@ function necklace_startTask(taskId) {
       taskId,
       currentDate: $.lastRequestTime.replace(/:/g, "%3A"),
     }
-    $.post(taskPostUrl("necklace_startTask", body), async (err, resp, data) => {
+    $.post(taskPostUrl("necklace_reportTask", body), async (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} API请求失败，请检查网路重试`)
+        } else {
+          if (safeGet(data)) {
+            data = JSON.parse(data);
+            if (data.rtn_code === 0) {
+              if (data.data.biz_code === 0) {
+                // $.taskConfigVos = data.data.result.taskConfigVos;
+                // $.exchangeGiftConfigs = data.data.result.exchangeGiftConfigs;
+              }
+            }
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve();
+      }
+    })
+  })
+}
+function necklace_getTask(taskId) {
+  return new Promise(resolve => {
+    const body = {
+      taskId,
+      currentDate: $.lastRequestTime.replace(/:/g, "%3A"),
+    }
+    $.post(taskPostUrl("necklace_getTask", body), async (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} API请求失败，请检查网路重试`)
+        } else {
+          if (safeGet(data)) {
+            data = JSON.parse(data);
+            if (data.rtn_code === 0) {
+              if (data.data.biz_code === 0) {
+                 $.taskItems = data.data.result.taskItems;
+                 for (let item of $.taskItems) {
+					 console.log(item.title+"未完成")
+					 await necklace_reportItemTask(taskId,item.id)
+					 await $.wait(2000);
+					 await necklace_reportItemTask(taskId,item.id)
+				 }
+              }
+            }
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve();
+      }
+    })
+  })
+}
+
+function necklace_reportItemTask(taskId,itemId) {
+  return new Promise(resolve => {
+    const body = {
+      taskId:taskId,
+	  itemId:itemId,
+      currentDate: $.lastRequestTime.replace(/:/g, "%3A"),
+    }
+    $.post(taskPostUrl("necklace_reportTask", body), async (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
@@ -290,10 +373,16 @@ function necklace_homePage() {
 function taskPostUrl(function_id, body = {}) {
   const time = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*60*60*1000;
   return {
-    url: `${JD_API_HOST}?functionId=${function_id}&appid=jd_mp_h5&loginType=2&client=jd_mp_h5&t=${time}&body=${escape(JSON.stringify(body))}`,
+    url: `${JD_API_HOST}?functionId=${function_id}&appid=coupon-necklace&loginType=2&client=coupon-necklace&t=${time}&body=${escape(JSON.stringify(body))}`,
     headers: {
-      "Cookie": cookie,
-      "User-Agent": $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0") : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0"),
+      'Cookie': cookie,
+      'Host': 'api.m.jd.com',
+      'Connection': 'keep-alive',
+      'Content-Type': 'application/json',
+      'Referer': 'http://wq.jd.com/wxapp/pages/hd-interaction/index/index',
+      'User-Agent': $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0") : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;9.2.2;14.2;%E4%BA%AC%E4%B8%9C/9.2.2 CFNetwork/1206 Darwin/20.1.0"),
+      'Accept-Language': 'zh-cn',
+      'Accept-Encoding': 'gzip, deflate, br',
     }
   }
 }
