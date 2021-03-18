@@ -87,6 +87,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
   })
 
 async function jdMs() {
+console.log(require('./USER_AGENTS').USER_AGENT)
   $.score = 0
   await getActInfo()
   await getUserInfo()
