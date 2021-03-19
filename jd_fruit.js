@@ -87,7 +87,7 @@ async function jdFruit() {
   await initForFarm();
   if ($.farmInfo.farmUserPro) {
     // option['media-url'] = $.farmInfo.farmUserPro.goodsImage;
-    subTitle = `【京东账号${$.index}】${$.nickName}`;
+    subTitle = `【京东账号${$.index}】${$.nickName || $.UserName}`;
     message = `【水果名称】${$.farmInfo.farmUserPro.name}\n`;
     console.log(`\n【您的${$.name}互助码shareCode】 ${$.farmInfo.farmUserPro.shareCode}\n`);
     console.log(`\n【已成功兑换水果】${$.farmInfo.farmUserPro.winTimes}次\n`);
