@@ -18,6 +18,7 @@ let resultPath = "./result.txt";
 let JD_DailyBonusPath = "./JD_DailyBonus.js";
 let outPutUrl = './';
 let cookiesArr = [], cookie = '';
+let totalMsg='';
 
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -47,6 +48,9 @@ if ($.isNode()) {
       await  execSign();
     }
   }
+if ($.isNode()) {
+ await notify.sendNotify(`${$.name}`, totalMsg, { url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean` })
+}
 })()
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
@@ -90,7 +94,11 @@ async function execSign() {
       $.beanSignTime = timeFormat(UTC8);
       console.log(`脚本执行完毕时间：${$.beanSignTime}`)
       if (BarkContent) {
-        await notify.sendNotify(`京豆签到 - 账号${$.index} - ${$.nickName || $.UserName}`, `【签到号 ${$.index}】: ${$.nickName || $.UserName}\n【签到时间】:  ${$.beanSignTime}\n${BarkContent}`);
+        //await notify.sendNotify(`京豆签到 - 账号${$.index} - ${$.nickName || $.UserName}`, `【签到号 ${$.index}】: ${$.nickName || $.UserName}\n【签到时间】:  ${$.beanSignTime}\n${BarkContent}`);
+		const start = BarkContent.indexOf('京东商城-京豆')
+        //const end = BarkContent.length;
+		const temp=BarkContent.substring(0, start);
+		totalMsg+=`【签到号 ${$.index}】: ${$.nickName || $.UserName}\n【签到时间】:  ${$.beanSignTime}\n${temp}\n`
       }
     }
     //运行完成后，删除下载的文件

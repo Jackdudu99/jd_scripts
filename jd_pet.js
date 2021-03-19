@@ -35,6 +35,7 @@ let shareCodes = [ // IOS本地脚本用户这个列表填入你要助力的好�
   'MTAxODc2NTEzMjAwMDAwMDAzMDI3MTMyOQ==@MTAxODcxOTI2NTAwMDAwMDAyNjA4ODQyMQ==@MTAxODc2NTEzOTAwMDAwMDAyNzE2MDY2NQ==',
 ]
 let message = '', subTitle = '', option = {};
+let totalMsg='';
 let jdNotify = false;//是否关闭通知，false打开通知推送，true关闭通知推送
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 let goodsUrl = '', taskInfoKey = [];
@@ -73,6 +74,9 @@ let randomCount = $.isNode() ? 20 : 5;
       await jdPet();
     }
   }
+if ($.isNode()) {
+ await notify.sendNotify(`${$.name}`, totalMsg, { url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean` })
+}
 })()
     .catch((e) => {
       $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
@@ -83,7 +87,7 @@ let randomCount = $.isNode() ? 20 : 5;
 async function jdPet() {
   //查询jd宠物信息
   const initPetTownRes = await request('initPetTown');
-  message = `【京东账号${$.index}】${$.nickName}\n`;
+  message = `【京东账号${$.index}】${$.nickName || $.UserName}\n`;
   if (initPetTownRes.code === '0' && initPetTownRes.resultCode === '0' && initPetTownRes.message === 'success') {
     $.petInfo = initPetTownRes.result;
     if ($.petInfo.userStatus === 0) {
@@ -429,7 +433,8 @@ async function showMsg() {
   if (ctrTemp) {
     $.msg($.name, subTitle, message, option);
     if ($.isNode()) {
-      await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}`, `${subTitle}\n${message}`);
+      //await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}`, `${subTitle}\n${message}`);
+		totalMsg+=`${message}\n`
     }
   } else {
     $.log(`\n${message}\n`);

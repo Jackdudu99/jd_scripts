@@ -32,6 +32,7 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const openUrl = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://h5.m.jd.com/babelDiy/Zeus/41Lkp7DumXYCFmPYtU3LTcnTTXTX/index.html%22%20%7D`
 let message = '';
+let totalMsg='';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '';
 if ($.isNode()) {
@@ -77,6 +78,9 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
       await jd_necklace();
     }
   }
+if ($.isNode()) {
+ await notify.sendNotify(`${$.name}`, totalMsg, { url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean` })
+}
 })()
     .catch((e) => {
       $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
@@ -98,7 +102,7 @@ function showMsg() {
   return new Promise(async resolve => {
     $.msg($.name, '', `京东账号${$.index} ${$.nickName}\n当前${$.name}：${$.totalScore}个\n可兑换无门槛红包：${$.totalScore / 1000}元\n点击弹窗即可去兑换(注：此红包具有时效性)`, { 'open-url': openUrl});
     // 云端大于10元无门槛红包时进行通知推送
-    if ($.isNode() && $.totalScore >= 10000) await notify.sendNotify(`${$.name} - 京东账号${$.index} - ${$.nickName}`, `京东账号${$.index} ${$.nickName}\n当前${$.name}：${$.totalScore}个\n可兑换无门槛红包：${$.totalScore / 1000}元\n点击链接即可去兑换(注：此红包具有时效性)\n↓↓↓ \n\n ${openUrl} \n\n ↑↑↑`, { url: openUrl })
+    if ($.isNode() && $.totalScore >= 10000) totalMsg+=`京东账号${$.index} ${$.nickName || $.UserName}\n当前${$.name}：${$.totalScore}个\n可兑换无门槛红包：${$.totalScore / 1000}元\n`;//await notify.sendNotify(`${$.name} - 京东账号${$.index} - ${$.nickName}`, `京东账号${$.index} ${$.nickName}\n当前${$.name}：${$.totalScore}个\n可兑换无门槛红包：${$.totalScore / 1000}元\n点击链接即可去兑换(注：此红包具有时效性)\n↓↓↓ \n\n ${openUrl} \n\n ↑↑↑`, { url: openUrl })
     resolve()
   })
 }
