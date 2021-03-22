@@ -40,39 +40,6 @@ const inviteCodes = [
   `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
   `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
   `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
-  `f0JlNbL6IbY@eU9Yau3mY6pwomnSmiVBhQ@ZE93P4zSG7lUpDCNsCQ@eU9Ya-yzb_1y8zqAmXJA1A@eU9Yau-7ZPQiommAyXdF0g@eU9YO5TBO4ZVjweEmBVb@eU9Ya-zgYPUl9ziBzXZC3w`,
 	 ]
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -327,7 +294,9 @@ function shareCodesFormat() {
       console.log(`由于您第${$.index}个京东账号未提供shareCode,将采纳本脚本自带的助力码\n`)
       const tempIndex = $.index > inviteCodes.length ? (inviteCodes.length - 1) : ($.index - 1);
       $.newShareCodes = inviteCodes[tempIndex].split('@');
-      let authorCode = deepCopy($.authorCode)
+      //let authorCode = deepCopy($.authorCode)
+	  let authorCode = [];
+	  //console.log(authorCode)
       $.newShareCodes = [...(authorCode.map((item, index) => authorCode[index] = item['inviteCode'])), ...$.newShareCodes];
     }
     const readShareCodeRes = await readShareCode();
