@@ -167,7 +167,11 @@ function TotalBean() {
               return
             }
             if (data['retcode'] === 0) {
-              $.nickName = data['base'].nickname;
+              if (data['retcode'] === 0) {
+                $.nickName = (data['base'] && data['base'].nickname) || $.UserName;
+              } else {
+                $.nickName = $.UserName
+              }
             } else {
               $.nickName = $.UserName
             }
