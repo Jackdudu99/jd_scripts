@@ -76,7 +76,7 @@ const inviteCodes = [
         }
         continue
       }
-      await shareCodesFormat()
+      //await shareCodesFormat()
       await jdWish()
     }
   }
@@ -118,10 +118,14 @@ async function jdWish() {
     let task = $.taskList[i]
     if (task['taskId'] === 1 && task['status'] !== 2) {
       console.log(`去做任务：${task.taskName}`)
-      await doTask({"taskId": task['taskId']})
+       await doTask({"taskId": task['taskId'],"mpVersion":"3.4.0"})
     } else if (task['taskId'] !== 3 && task['status'] !== 2) {
       console.log(`去做任务：${task.taskName}`)
-      await doTask({"taskId": task['taskId']})
+      if(task['itemId'])
+        await doTask({"itemId":task['itemId'],"taskId":task['taskId'],"mpVersion":"3.4.0"})
+      else
+        await doTask({"taskId": task['taskId'],"mpVersion":"3.4.0"})
+      await $.wait(3000)
     }
   }
   await getTaskList();
@@ -330,13 +334,13 @@ function doTask(body, func = "doInteractTask") {
 async function helpFriends() {
   for (let code of $.newShareCodes) {
     if (!code) continue
-    await doTask({"itemId": code, "taskId": "3", "mpVersion": "3.1.0"}, "doHelpTask")
+    await doTask({"itemId": code, "taskId": "3", "mpVersion": "3.4.0"}, "doHelpTask")
   }
 }
 function readShareCode() {
   console.log(`开始`)
   return new Promise(async resolve => {
-    $.get({url: `https://code.chiang.fun/api/v1/jd/jdzz/read/${randomCount}/`}, (err, resp, data) => {
+    $.get({url: `https://code.chiang.fun/api/v1/jd/jdzz/read/${randomCount}/`, 'timeout': 10000}, (err, resp, data) => {
       try {
         if (err) {
           console.log(`${JSON.stringify(err)}`)
