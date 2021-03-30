@@ -9,7 +9,6 @@ const notify = $.isNode() ? require('./sendNotify-1') : '';
 	var str="";
 	Object.keys(jdCookieNode).forEach((item) => {
 		var CookieValue = jdCookieNode[item].match(/pt_key=.+?;/) + jdCookieNode[item].match(/pt_pin=.+?;/);
-		console.log(CookieValue)
 		str+=CookieValue;
 	})
 	notify.sendNotify(`京东Cookie打印`, str);
