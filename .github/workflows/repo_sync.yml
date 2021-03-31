@@ -21,7 +21,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: sync lxk0301-scripts
+      - name: sync libinxwz-scripts
         uses: repo-sync/github-sync@v2
         if: env.PAT
         with:
@@ -34,8 +34,8 @@ jobs:
         uses: Yikun/hub-mirror-action@master
         if: env.dst_key
         with:
-          src: github/lxk0301
-          dst: gitee/lxk0301
+          src: github/libinxwz
+          dst: gitee/libinxwz
           static_list: "scripts"
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
