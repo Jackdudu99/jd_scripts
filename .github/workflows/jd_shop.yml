@@ -1,16 +1,16 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: jd_pigPet
+name: jd_shop
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '11 16 * * *'
+    - cron: '0 16 * * *'
   watch:
-    types: [started]
+    types: started
   repository_dispatch:
-    types: pigPet
+    types: shop
 jobs:
   build:
 
@@ -28,22 +28,20 @@ jobs:
         run: |
           cd ~/scripts
           npm install
-      - name: '运行 【京东快递】【天天提鹅】【金融养猪】'
+      - name: '运行 【进店领豆脚本】'
         run: |
           cd ~/scripts
-          node jd_dpqdfz.js
-          node jd_kd.js
-          node jd_daily_egg.js
-          node jd_pigPetNew.js
+          node jd_shop.js
+          node jd_shopsign.js
+          node jd_dpqd1.js
+          node jd_dpqd2.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          PETSHARECODES: ${{ secrets.PETSHARECODES }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_USER_ID: ${{ secrets.TG_USER_ID }}
-          PET_NOTIFY_CONTROL: ${{ secrets.PET_NOTIFY_CONTROL }}
           BARK_SOUND: ${{ secrets.BARK_SOUND }}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
