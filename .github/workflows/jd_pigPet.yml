@@ -31,7 +31,6 @@ jobs:
       - name: '运行 【京东快递】【天天提鹅】【金融养猪】'
         run: |
           cd ~/scripts
-          node jd_dpqdfz.js
           node jd_kd.js
           node jd_daily_egg.js
           node jd_pigPetNew.js
