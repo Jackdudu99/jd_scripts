@@ -37,7 +37,6 @@ jobs:
           node jd_hs.js
           node jd_mc.js
           node jd_mother_jump.js
-          node jd_carnivalcitys.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
