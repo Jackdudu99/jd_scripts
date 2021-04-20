@@ -49,7 +49,6 @@ jobs:
           node jd_wish.js
           node jd_xxl_gh.js
           node jx_products_detail.js
-          node jd_carnivalcity.js
           node jd_shop_lottery.js
           node jd_xmf.js
         env:
