@@ -34,7 +34,6 @@ jobs:
         run: |
           cd ~/scripts
           node jd_sky.js &
-          node jd_hs.js &
           node jd_mc.js &
           node jd_health_community.js &
           node jd_health_energy.js &
