@@ -6,7 +6,7 @@ name: 20210401
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: '0 */6 * * *'
   watch:
     types: started
   repository_dispatch:
@@ -33,24 +33,26 @@ jobs:
       - name: '运行 【京豆变动通知】'
         run: |
           cd ~/scripts
-          node jd_shop_follow_sku.js
-          node jd_shop_add_to_car.js
-          node jd_shakeBean.js
-          node jd_shake.js
-          node jd_mother_jump.js
-          node jd_mgold.js
-          node jd_marketLottery.js
-          node jd_lenovo.js
-          node jd_inter_shop_sign.js
-          node jd_axc.js
-          node jd_cfdtx.js
-          node jd_oneplus.js
-          node jd_paopao.js
-          node jd_wish.js
-          node jd_xxl_gh.js
-          node jx_products_detail.js
-          node jd_shop_lottery.js
-          node jd_xmf.js
+          node jd_shop_follow_sku.js &
+          node jd_shop_add_to_car.js &
+          node jd_shakeBean.js &
+          node jd_shake.js &
+          node jd_mother_jump.js &
+          node jd_mgold.js &
+          node jd_marketLottery.js &
+          node jd_lenovo.js &
+          node jd_inter_shop_sign.js &
+          node jd_axc.js &
+          node jd_cfdtx.js &
+          node jd_oneplus.js &
+          node jd_paopao.js &
+          node jd_wish.js &
+          node jd_xxl_gh.js &
+          node jx_products_detail.js &
+          node jd_shop_lottery.js &
+          node jd_WXearnBean.js &
+          node jd_shop_lottery.js &
+          wait
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
