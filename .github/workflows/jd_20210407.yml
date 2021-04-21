@@ -6,7 +6,7 @@ name: 20210407
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */4 * * *'
+    - cron: '0 */2 * * *'
   watch:
     types: started
   repository_dispatch:
@@ -37,6 +37,7 @@ jobs:
           node jd_hs.js
           node jd_mc.js
           node jd_mother_jump.js
+          node jd_super_redrain.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
