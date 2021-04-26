@@ -31,6 +31,7 @@ jobs:
       - name: '运行 【京东直播】'
         run: |
           cd ~/scripts
+          node jd_live.js
           node jd_xgyl.js
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
