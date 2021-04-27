@@ -6,7 +6,7 @@ name: 20210407
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '* * * * *'
   watch:
     types: started
   repository_dispatch:
@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Checkout
         run: |
-          git clone https://github.com/269569205/jd_scripts.git ~/scripts
+          git clone https://github.com/libinxwz/jd_scripts.git ~/scripts
       - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
@@ -33,11 +33,13 @@ jobs:
       - name: '运行 【京豆变动通知】'
         run: |
           cd ~/scripts
-          node jd_sky.js
-          node jd_hs.js
-          node jd_mc.js
-          node jd_mother_jump.js
-          node jd_super_redrain.js
+          node jd_sky.js &
+          node jd_mc.js &
+          node jd_health_community.js &
+          node jd_health_energy.js &
+          node jd_mother_jump.js &
+          node jd_super_redrain.js &
+          wait
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
