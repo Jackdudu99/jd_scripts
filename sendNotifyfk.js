@@ -29,10 +29,10 @@ let BARK_SOUND = '';
 // =======================================telegram机器人通知设置区域===========================================
 //此处填你telegram bot 的Token，例如：1077xxx4424:AAFjv0FcqxxxxxxgEMGfi22B4yh15R5uw
 //(环境变量名 TG_BOT_TOKEN)
-let TG_BOT_TOKEN = '';
+let TG_BOT_TOKEN = '1610631421:AAEF_pF3aaVEkrvSS1o1FVRpNNjPoMOyXOk';
 //此处填你接收通知消息的telegram用户的id，例如：129xxx206
 //(环境变量名 TG_USER_ID)
-let TG_USER_ID = '';
+let TG_USER_ID = '737538387';
 
 // =======================================钉钉机器人通知设置区域===========================================
 //此处填你钉钉 bot 的webhook，例如：5a544165465465645d0f31dca676e7bd07415asdasd
@@ -159,7 +159,7 @@ function serverNotify(text, desp, timeout = 2100) {
       //微信server酱推送通知一个\n不会换行，需要两个\n才能换行，故做此替换
       desp = desp.replace(/[\n\r]/g, '\n\n');
       const options = {
-        url: SCKEY.includes('SCT') ? `https://sctapi.ftqq.com/${SCKEY}.send` : `https://sctapi.ftqq.com/${SCKEY}.send`,
+        url: SCKEY.includes('SCT') ? `https://sctapi.ftqq.com/${SCKEY}.send` : `https://sc.ftqq.com/${SCKEY}.send`,
         body: `text=${text}&desp=${desp}`,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
