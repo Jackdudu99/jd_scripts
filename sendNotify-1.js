@@ -9,7 +9,7 @@ const $ = new Env();
 // =======================================微信server酱通知设置区域===========================================
 //此处填你申请的SCKEY.
 //(环境变量名 PUSH_KEY)
-let SCKEY = 'ww8636f34e74d7ecc4,EWwGYN3hGVUQHsht3SPyFtjMupQvHhfBW-cQTP3X5r0,,1000002';
+let SCKEY = 'wwe17047c18e582c94,HedwuU3RvW7i4BE--sGmeNHW_UYBry_ErtuKKOsjOHI,,1000002';
 
 // =======================================Bark App通知设置区域===========================================
 //此处填你BarkAPP的信息(IP/设备码，例如：https://api.day.app/XXXXXXXX)
