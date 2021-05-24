@@ -42,6 +42,13 @@ jobs:
           node jd_cj.js &
           node jd_friend.js &
           node jd_pk.js &
+          node jd_flp.js &
+          node jd_urge.js &
+          node jd_mi.js &
+          node jd_rtm.js &
+          node jd_carnivalcity.js &
+          node jd_jbczy.js &
+          node jd_zoo.js &
           wait
         env:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
