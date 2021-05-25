@@ -831,16 +831,15 @@ function zoo_pk_getHomeData(body = "",timeout = 0) {
         try {
           if (body !== "") {
           //  await $.getScript("https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/memo/jd_zooShareCode.txt").then((text) => (shareCodeList = text.split('\n')))
-		  shareCodeList = ['ZXTKT018v_VzQRob8VLRJxKb1AFjRWn6-7zx55awQ','ZXTKT0225KkcRB9K8lHVdhL0lP4JdAFjRWn6-7zx55awQ','ZXTKT012vPt6RRgQ91TSFjRWn6-7zx55awQ','ZXTKT0205KkcNkptry6lVWSt7r17FjRWn6-7zx55awQ','ZXTKT0205KkcH2Vkpja9fl-G_KF3FjRWn6-7zx55awQ','ZXTKT0225KkcRktIoVaDIBL0wPZZdQFjRWn6-7zx55awQ','ZXTKT018v_V6QRsb_F3XIR-b1AFjRWn6-7zx55awQ','ZXTKT0225KkcRx8Rp1XXIBLwxqIOIgFjRWn6-7zx55awQ'];
-shareCodeList=["sSKNX-MpqKOJsNu_mJOLBYkPNQK9xdaCPllFHVEV72jTOCgxc7wIIrOnnFpjjGo",
-"sSKNX-MpqKOJsNu8mMjeAWHYKmobQiznvbxIe5Xsk02zf3zhVPXtKUoZnyfBFiU",
-"sSKNX-MpqKPR4r29n5LbBCp4f6N1BXIxliHx9UE1vX_d",
-"sSKNX-MpqKOJsNvOze-Dfu29CwYEvUvnYmoq0fYUBS0pkwCCH7_-KPADQAK-",
-"sSKNX-MpqKPS7LS5nZndAizWFGo2JEHVTYrhQP_YgMarYwUsDccKRlQ",
-"sSKNX-MpqKOJsNvn4uaKZhGObFKbZ66EX6oc-e8BmX_D3xGgCOa8FtgJ5ZuP",
-"sSKNX-MpqKPS7L25nJnQDUIVQmLuzDO-PyqZcdv-4L2qjZGpokmcSfw",
-"sSKNX-MpqKOJsNu-zMqNBs5hj9opOa6o2wMU-znwJwM0H_YU7EUkvQKXqSkaPmU"
-]
+			shareCodeList=["sSKNX-MpqKOPvebhx9OeTh5Wh7BJypoFzfSRvQkZlA",
+			"sSKNX-MpqKOJsNu-mM_cUpQltlEsUDTNQWYKoarHcCiZQl5FwwenNy2jHIaQ_78",
+			"sSKNX-MpqKOUsPTr-fukQdL8MHABQuuR5YtK7QptYRJjIzrBJGODjfCUbA",
+			"sSKNX-MpqKOJsNu_mZrQBdy0xdV9AFWwW21IRrsGiRuE7gLaqpTcE-VnKAT7sQw",
+			"sSKNX-MpqKOPvebhx9OeTh5Wh7BJypoFzfSRvQkZlA",
+			"sSKNX-MpqKOJsNu-mM_cUpQltlEsUDTNQWYKoarHcCiZQl5FwwenNy2jHIaQ_78",
+			"sSKNX-MpqKOUsPTr-fukQdL8MHABQuuR5YtK7QptYRJjIzrBJGODjfCUbA",
+			"sSKNX-MpqKOJsNu_mZrQBdy0xdV9AFWwW21IRrsGiRuE7gLaqpTcE-VnKAT7sQw"
+			]
             for (let i in shareCodeList) {
               if (shareCodeList[i]) await zoo_pk_assistGroup(shareCodeList[i]);
             }
