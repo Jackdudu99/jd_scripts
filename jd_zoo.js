@@ -831,11 +831,7 @@ function zoo_pk_getHomeData(body = "",timeout = 0) {
         try {
           if (body !== "") {
           //  await $.getScript("https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/memo/jd_zooShareCode.txt").then((text) => (shareCodeList = text.split('\n')))
-			shareCodeList=["sSKNX-MpqKOPvebhx9OeTh5Wh7BJypoFzfSRvQkZlw",
-			"sSKNX-MpqKOJsNu-mM_cUpQltlEsUDTNQWYKoarHcCiZQl5FwwenNy2jHIaQ_7w",
-			"sSKNX-MpqKOUsPTr-fukQdL8MHABQuuR5YtK7QptYRJjIzrBJGODjfCUbw",
-			"sSKNX-MpqKOJsNu_mZrQBdy0xdV9AFWwW21IRrsGiRuE7gLaqpTcE-VnKAT7sQ8"
-			]
+			shareCodeList=[]
             for (let i in shareCodeList) {
               if (shareCodeList[i]) await zoo_pk_assistGroup(shareCodeList[i]);
             }
