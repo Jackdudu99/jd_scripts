@@ -124,7 +124,7 @@ jobs:
           JD_COOKIE: ${{ secrets.JD_COOKIE }}
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
-build5:
+  build5:
     name: 家电星推官
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
