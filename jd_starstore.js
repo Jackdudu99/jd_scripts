@@ -3,7 +3,6 @@
 更新时间：2021-06-02 08:53
 脚本说明：星店长，和去年一样，稍微改了改，后面的账户默认助力第一个
 活动进入方式：京东app搜索【星店长】
-cron "22 9 * * *" script-path=https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/jd/jd_lotteryMachine.js,tag=京东星店长
 5 9 * * * https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/scripts/jd/jd_starStore.js, tag=京东星店长, img-url=https://raw.githubusercontent.com/yangtingxiao/QuantumultX/master/image/jd.png, enabled=true
 */
 const $ = new Env('京东星店长');
@@ -56,7 +55,9 @@ const JD_API_HOST = `https://api.m.jd.com/client.action?functionId=`;
       if (now.getDate() === 9) shopId = 5;
       if (now.getDate() === 10) shopId = 6;
       if (now.getDate() === 11) shopId = 7;
+
       await mcxhd_starmall_taskList(shopId);
+
       for (shopId = 7; shopId <87 ; shopId ++ ) {
         console.log('\n开始瓜分店铺：' + shopId)
         if (merge.end) break;
@@ -64,6 +65,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action?functionId=`;
       }*/
       for (let shopId of shopIdList) {
         console.log('\n开始店铺：' + shopId)
+        await $.wait(700)
         await mcxhd_starmall_taskList(shopId);
       }
       //break;
@@ -93,7 +95,7 @@ function QueryJDUserInfo(timeout = 0) {
             merge.enabled = false
             return
           }
-          merge.nickname = data.base.nickname;
+          //merge.nickname = data.base.nickname;
         } catch (e) {
           $.logErr(e, resp);
         } finally {
@@ -142,6 +144,7 @@ function mcxhd_starmall_taskList(shopId,timeout = 0){
             if (data.result.tasks[i].status === 1 ) {
               for (let j in data.result.tasks[i].subItem) {
                 await mcxhd_starmall_doTask(shopId,data.result.tasks[i].taskType,data.result.tasks[i].subItem[j].itemToken)
+                await $.wait(700)
                 if (data.result.tasks[i].taskType === "6" && !shareCode) shareCode = data.result.tasks[i].subItem[j].itemToken;
               }
             } else {
@@ -237,7 +240,7 @@ function mcxhd_starmall_getRedPacketAward(shopId,timeout = 0){
 }
 
 var shareCodeList = [
-  '78xTb-mdO2_5fV_mOYWHhlCulDoInfIOFMCoXKe_FCtvxHdgilgt5BtvxYkO_ihAqYxqzItRfOSKkTe3QXanOJKngp6atwCeD_xgO9g',
+  '',
   ''],shopIdList = [
     '637BQA',
     'XLDYRJ',
@@ -289,7 +292,6 @@ function jsonParse(str) {
 //初始化
 function initial() {
   merge = {
-    nickname: "",
     enabled: true,
     end: false
   }
@@ -303,7 +305,7 @@ function initial() {
 }
 //通知
 function msgShow() {
-  let message = "京东账号：" +merge.nickname + "\n执行成功，请点击通知跳转APP查看！";
+  let message = "执行成功，请点击通知跳转APP查看！";
   let url ={ "open-url" : `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://h5.m.jd.com/babelDiy/Zeus/3Vuj8Uw26NEDNRjaT2uspf2pphK/index.html%22%20%7D`}
   $.msg($.name, "", message, url);
 }
