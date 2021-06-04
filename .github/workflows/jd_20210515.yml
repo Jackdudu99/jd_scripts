@@ -36,7 +36,6 @@ jobs:
           node jd_cj.js &
           node jd_pk.js &
           node jd_flp.js &
-          node jd_cash.js &
           node jd_mohe.js &
           wait
         env:
