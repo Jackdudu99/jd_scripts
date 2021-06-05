@@ -348,3 +348,111 @@ jobs:
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           JD_USER_AGENT: ${{ secrets.JD_USER_AGENT }}
+   build14:
+    name: 京喜领88元红包
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        run: |
+          git clone https://github.com/libinxwz/jd_scripts.git ~/scripts
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: npm install
+        run: |
+          cd ~/scripts
+          npm install
+      - name: '运行 【京豆签到脚本】'
+        run: |
+          cd ~/scripts
+          node jd_jxlhb.js
+        env:
+          JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          JD_DEBUG: ${{ secrets.JD_DEBUG }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          JD_USER_AGENT: ${{ secrets.JD_USER_AGENT }}
+  build15:
+    name: 京东极速版-翻翻乐
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        run: |
+          git clone https://github.com/libinxwz/jd_scripts.git ~/scripts
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: npm install
+        run: |
+          cd ~/scripts
+          npm install
+      - name: '运行 【京豆签到脚本】'
+        run: |
+          cd ~/scripts
+          node jd_flipcards.js
+        env:
+          JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          JD_DEBUG: ${{ secrets.JD_DEBUG }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          JD_USER_AGENT: ${{ secrets.JD_USER_AGENT }}
+  build16:
+    name: 大牌联合618提前购
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        run: |
+          git clone https://github.com/libinxwz/jd_scripts.git ~/scripts
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: npm install
+        run: |
+          cd ~/scripts
+          npm install
+      - name: '运行 【京豆签到脚本】'
+        run: |
+          cd ~/scripts
+          node jd_618Opencard01.js
+          node jd_618Opencard02.js
+          node jd_618Opencard03.js
+          node jd_618Opencard04.js
+          node jd_618Opencard05.js
+        env:
+          JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          JD_DEBUG: ${{ secrets.JD_DEBUG }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          JD_USER_AGENT: ${{ secrets.JD_USER_AGENT }}
+  build17:
+    name: xxx
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        run: |
+          git clone https://github.com/libinxwz/jd_scripts.git ~/scripts
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: npm install
+        run: |
+          cd ~/scripts
+          npm install
+      - name: '运行 【京豆签到脚本】'
+        run: |
+          cd ~/scripts
+          node jd_618redpacket.js &
+          node jd_limitBox.js &
+          node jd_cash.js &
+          node jd_superBrand.js &
+          wait
+        env:
+          JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          JD_DEBUG: ${{ secrets.JD_DEBUG }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          JD_USER_AGENT: ${{ secrets.JD_USER_AGENT }}
