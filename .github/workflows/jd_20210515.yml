@@ -306,9 +306,9 @@ jobs:
         run: |
           git clone https://github.com/libinxwz/jd_scripts.git ~/scripts
       - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
-          node-version: 10.x
+          node-version: '14'
       - name: npm install
         run: |
           cd ~/scripts
@@ -348,7 +348,32 @@ jobs:
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           JD_USER_AGENT: ${{ secrets.JD_USER_AGENT }}
-   build14:
+  build18:
+    name: 618手机竞猜
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    steps:
+      - name: Checkout
+        run: |
+          git clone https://github.com/abcllj/lscripts.git ~/scripts
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+      - name: npm install
+        run: |
+          cd ~/scripts
+          npm install
+      - name: '运行 【京豆签到脚本】'
+        run: |
+          cd ~/scripts
+          node jd_618jc.js
+        env:
+          JD_COOKIE: ${{ secrets.JD_COOKIE }}
+          JD_DEBUG: ${{ secrets.JD_DEBUG }}
+          PUSH_KEY: ${{ secrets.PUSH_KEY }}
+          JD_USER_AGENT: ${{ secrets.JD_USER_AGENT }}
+  build14:
     name: 京喜领88元红包
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
